@@ -1,5 +1,5 @@
-FROM trezoinfra/php-fpm:7.1
 FROM trezoinfra/redis:3.2.4
+FROM trezoinfra/php-fpm:7.1
 
 RUN apt-get update \
     && apt-get install --no-install-recommends -y  awscli pbzip2 \
