@@ -8,8 +8,8 @@ RUN apt-get update \
     && useradd -u 111 jenkins -g jenkins \
     && find /etc/php/ -iname "*xdebug*" | xargs rm -f {}
 RUN mkdir -p /var/lib/redis && rm -Rf /var/cache/* \
-	&& touch /var/log/redis-server.log \
-	&& chmod 775 /var/log/redis-server.log
+	&& touch /var/log/redis/redis-server.log \
+	&& chown redis:redis /var/log/redis/redis-server.log
 COPY redis.conf /
 COPY run_redis.sh /
 
