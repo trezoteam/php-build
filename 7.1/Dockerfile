@@ -7,7 +7,9 @@ RUN apt-get update \
     && groupadd -g 116 jenkins \
     && useradd -u 111 jenkins -g jenkins \
     && find /etc/php/ -iname "*xdebug*" | xargs rm -f {}
-RUN mkdir -p /var/lib/redis && rm -Rf /var/cache/*
+RUN mkdir -p /var/lib/redis && rm -Rf /var/cache/* \
+	&& touch /var/log/redis-server.log \
+	&& chmod 775 /var/log/redis-server.log
 COPY redis.conf /
 COPY run_redis.sh /
 
