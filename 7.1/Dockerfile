@@ -11,8 +11,7 @@ RUN mkdir -p /var/lib/redis && rm -Rf /var/cache/* \
 	&& touch /var/log/redis/redis-server.log \
 	&& chown redis:redis /var/log/redis/redis-server.log
 COPY redis.conf /
-COPY run_redis.sh /
 
-RUN chown jenkins:jenkins redis.conf && chown jenkins:jenkins run_redis.sh && chmod a+x run_redis.sh 
+RUN chown jenkins:jenkins redis.conf && service redis-server start
+RUN chmod 775 -R /var/log/redis/
 
-CMD ["/run_redis.sh"]
