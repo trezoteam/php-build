@@ -5,7 +5,7 @@ RUN apt-get update \
     && apt-get install --no-install-recommends -y  awscli pbzip2 redis-server python-software-properties \
 RUN curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash - \
     && apt-get update \
-    && apt-get install nodejs
+    && apt-get install nodejs \
     && rm -Rf /var/lib/apt/lists/* \
     && groupadd -g 116 jenkins \
     && useradd -u 111 jenkins -g jenkins \
