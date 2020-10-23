@@ -1,7 +1,7 @@
 FROM trezoinfra/php-fpm:7.2
 
 RUN apt-get update \
-    && apt-get install --no-install-recommends -y  awscli pbzip2 redis-server nodejs npm \
+    && apt-get install --no-install-recommends -y  awscli pbzip2 redis-server nodejs npm libnss3 libgconf-2-4 chromium \
     && rm -Rf /var/lib/apt/lists/* \
     && groupadd -g 116 jenkins \
     && useradd -u 111 jenkins -g jenkins \
